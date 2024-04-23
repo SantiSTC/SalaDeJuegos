@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "saladejuegos-iannello": {
+      "hosting": {
+        "saladejuegos": [
+          "saladejuegos-iannello"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "saladejuegos-iannello"
+  }
+}
