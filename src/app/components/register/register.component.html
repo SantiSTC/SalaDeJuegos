@@ -2,30 +2,22 @@
     <div class="h-full w-full flex flex-col justify-center items-start mb-20">
         <h2 class="text-[45px] text-slate-100 font-bold">Bienvenido a</h2>
         <h1 class="text-[75px] text-slate-100 font-black">Sala de Juegos</h1>
-        <div class="flex flex-col gap-1">
-            <p class="text-[15px] text-customBlue font-bold">¿Acceso rapido? Acá:</p>
-            <select name="acceso" id="acceso" (change)="handleSelection($event)" class="bg-zinc-800 rounded-md h-6 px-1 text-slate-100 font-medium text-sm">
-                <option value=" ,">Selecciona una opción</option>
-                <option value="admin@admin.com,123456">Admin</option>
-                <option value="messi@messi.com,messi10">Messi</option>
-                <option value="diego@diego.com,diego10">Maradona</option>
-            </select>
-        </div>
+        <h3 class="text-[15px] text-customBlue font-bold">Registrate para disfrutar de los mejores juegos en linea... ¿Que estas esperando?</h3>
     </div>
     <div class="h-full w-auto flex justify-center items-center">
         <div class="h-auto w-96 rounded-3xl bg-slate-200 shadow-2xl flex items-center flex-col gap-4 px-5 py-10">
             <div class="w-full flex flex-col items-center gap-2">
                 <img src="/assets/joystick.png" alt="" height="60px" width="60px" />
-                <p class="text-zinc-900 font-bold text-2xl">Iniciá Sesión</p>
+                <p class="text-zinc-900 font-bold text-2xl">Registrate </p>
             </div>
             <div class="w-full flex flex-col items-center gap-5 mt-1">
                 <input [(ngModel)]="email" type="email" placeholder="Correo electronico" class="p-2 h-12 w-[80%] rounded-md bg-zinc-900 text-slate-100 focus:bg-white focus:text-zinc-900 transition-all duration-500">
                 <input [(ngModel)]="password" type="password" placeholder="Contraseña" class="p-2 h-12 w-[80%] rounded-md bg-zinc-900 text-slate-100 focus:bg-white focus:text-zinc-900 transition-all duration-500">
-                <button (click)="login()" class="h-12 w-[80%] flex justify-center items-center bg-customBlue text-slate-100 font-bold rounded-md hover:bg-slate-100 hover:text-customBlue transition-all duration-500">Ingresar</button>
+                <button (click)="register()" class="h-12 w-[80%] flex justify-center items-center bg-customBlue text-slate-100 font-bold rounded-md hover:bg-slate-100 hover:text-customBlue transition-all duration-500">Registrarse</button>
             </div>
             <div class="flex flex-row justify-center text-sm gap-1 font-medium mb-2">
-                <p class="text-zinc-900">¿No tienes una cuenta?</p>
-                <p (click)="redirectToRegister()" class="text-customBlue cursor-pointer hover:underline hover:text-blue-950">Registrate</p>
+                <p class="text-zinc-900">¿Ya tienes una cuenta?</p>
+                <p (click)="redirectToLogin()" class="text-customBlue cursor-pointer hover:underline hover:text-blue-950">Iniciá Sesión</p>
             </div>
         </div>
     </div>

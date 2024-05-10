@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.archivo {
+  font-family: "Archivo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100,200,300,400,500,600,700,800,900;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}

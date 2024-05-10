@@ -1,1 +1,20 @@
-<p>home works!</p>
+<div class="w-screen h-auto flex flex-col">
+    <div class="w-full h-16 bg-zinc-900 flex flex-row justify-between px-7">
+        <div class="flex items-center flex-row gap-3">
+            <img src="/assets/joystick.png" alt="" height="32px" width="32px" />
+            <p class="text-2xl text-slate-100 font-bold">Sala de Juegos</p>
+        </div>
+        <div class="flex items-center flex-row gap-3">
+            @if (isAuthenticated) {
+                <div class="flex flex-row rounded-md py-1 px-4 gap-2 bg-white">
+                    <img src="/assets/home/user.png" alt="" height="25px" width="25px" class="">
+                    <p class="text-zinc-900">{{email}}</p>
+                </div>
+                <button (click)="redirectTo('login')" class="bg-red-600 rounded-md py-1 px-4 text-white font-medium">Salir</button>
+            } @else {
+                <button (click)="redirectTo('login')" class="bg-customBlue rounded-md py-1 px-3 text-slate-100 font-medium hover:bg-sky-950 transition-all duration-300">Ingresar</button>
+                <button (click)="redirectTo('register')" class="bg-slate-100 rounded-md py-1 px-3 text-customBlue font-medium hover:bg-slate-300 hover:text-sky-950 transition-all duration-300">Registrarse</button>
+            }
+        </div>
+    </div>
+</div>
