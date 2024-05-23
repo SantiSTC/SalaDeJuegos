@@ -26,6 +26,24 @@ export const routes: Routes = [
         ),
     },
     {
+        path: "mayor-menor",
+        loadComponent: () => import('./components/juegos/mayormenor/mayormenor.component').then(
+            (m) => m.MayormenorComponent,
+        ),
+    },
+    {
+        path: "ahorcado",
+        loadComponent: () => import('./components/juegos/ahorcado/ahorcado.component').then(
+            (m) => m.AhorcadoComponent,
+        ),
+    },
+    {
+        path: "mayormenor",
+        loadComponent: () => import('./components/juegos/mayormenor/mayormenor.component').then(
+            (m) => m.MayormenorComponent,
+        ),
+    },
+    {
         path: " ",
         redirectTo: "login",
         pathMatch: "full",

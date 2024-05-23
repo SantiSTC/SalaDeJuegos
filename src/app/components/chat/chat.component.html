@@ -1,15 +1,44 @@
-<div class="p-3">
-    <div class="h-full w-full bg-white/25 flex items-center flex-col rounded-3xl p-2">
-        <div class="h-10 w-full flex items-center justify-center shadow-xl bg-sky-950 rounded-3xl">
-            <p class="text-slate-100 font-black">CHAT</p>
-        </div>
-        <hr>
-        <div class="h-full w-full p-2 rounded-bl-md">
-            <br><br><br><br><br><br><br><br>
-            <br><br><br><br><br><br><br><br>
-        </div>
-        <div class="h-10 w-full p-1 flex justify-center items-center bg-white rounded-3xl">
-            
+@if (isActive) {
+    <div class="p-3">
+        <div class="h-full w-full bg-white/25 flex items-center flex-col rounded-3xl p-2">
+            <div class="h-10 w-full flex flex-row items-center justify-center shadow-xl bg-sky-950 rounded-3xl">
+                <p class="text-slate-100 font-black absolute">CHAT</p>
+                <p (click)="emitIsActiveChange()" class="text-white font-black ml-auto mr-5 hover:scale-90 cursor-pointer hover:text-red-600">X</p>
+            </div>
+
+            <div id="chat" class="h-[68vh] w-full p-2 rounded-bl-md overflow-y-scroll overflow-x-hidden">
+                <div class="flex flex-col p-3 gap-4">
+                    @if (mensajes) {
+                        @for (item of mensajes; track $index) {
+                            @if (item.email == email) {
+                                <div id="mensaje{{$index}}" class="flex flex-col h-auto w-4/5 p-2 bg-customBlue text-white rounded-xl ml-auto">
+                                    <p class="break-all">{{item.content}}</p>
+                                    <div class="mt-auto flex justify-end">
+                                        <p class="text-[8px]">{{item.time}}</p>
+                                    </div>
+                                </div>
+                            } @else {
+                                <div class="flex flex-col h-auto w-4/5 p-2 bg-white rounded-xl mr-auto">
+                                    <div class="mb-auto flex justify-start">
+                                        <p class="text-[10px]">{{item.email.split("@")[0]}}</p>
+                                    </div>
+                                    <p class="break-all">{{item.content}}</p>
+                                    <div class="mt-auto flex justify-end">
+                                        <p class="text-[8px]">{{item.time}}</p>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    } @else {
+                        <p>No hay mensajes aun :,{{"("}}</p>
+                    }
+                </div>
+            </div>
+            <form  class="w-full h-10 relative">
+                <input type="text" name="mensaje" [(ngModel)]="mensaje" class="h-10 w-full flex justify-center items-center bg-white rounded-3xl pl-4 pr-10">
+                <button type="submit" (click)="sendMessage()" class="absolute right-0 top-0 h-10 p-1 mr-3 text-black"><img src="/assets/home/enviar.png" alt="" height="20px" width="20px" class="h-4 w-4 active:scale-95"></button>
+            </form>
         </div>
     </div>
-</div>
+    
+}

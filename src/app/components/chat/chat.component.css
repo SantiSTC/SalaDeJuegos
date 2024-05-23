@@ -1,0 +1,8 @@
+#chat {
+    scrollbar-width: none; /* Para Firefox */
+    -ms-overflow-style: none;  /* Para Internet Explorer y Edge */
+}
+
+#chat::-webkit-scrollbar {
+    display: none; /* Para Chrome, Safari y Opera */
+}
