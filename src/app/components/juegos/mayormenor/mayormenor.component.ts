@@ -106,10 +106,6 @@ export class MayormenorComponent implements OnInit{
     }
   }
 
-  printear() {
-    console.log(this.imagenNumeroAnterior);
-  }
-
   redirectTo(destino: string) {
     this.router.navigateByUrl(destino);
   }

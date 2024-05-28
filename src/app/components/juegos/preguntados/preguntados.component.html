@@ -1,0 +1,45 @@
+<div class="w-screen h-screen flex flex-col overflow-x- bg-cover bg-center bg-[url('/assets/home/fondo.jpg')]">
+    <div class="w-full h-16 min-h-16 bg-zinc-900 flex flex-row justify-between">
+        <div class="flex items-center flex-row gap-3 ml-7 z-50">
+            <img (click)="redirectTo('home')" src="/assets/joystick.png" alt="" height="32px" width="32px" class="cursor-pointer"/>
+            <p class="text-2xl text-slate-100 font-bold">Preguntados</p>
+        </div>
+        <div class="absolute h-16 w-screen flex justify-center items-center flex-row gap-3 z-20">
+            <p class="text-xl text-slate-100 font-bold">Aciertos: {{score}}</p>
+            <p class="text-xl text-slate-100 font-bold"> | </p>
+            <div class="flex flex-row gap-1">
+                <p class="text-xl text-slate-100 font-bold">Fallos Restantes: </p>
+                @if (intentosRestantes > 3) {
+                    <p class="text-xl text-slate-100 font-bold">{{intentosRestantes}}</p>
+                } @else {
+                    <p class="text-xl text-red-600 font-bold">{{intentosRestantes}}</p>
+                }
+            </div>
+        </div>
+        <div class="flex items-center flex-row gap-3 mr-7 z-50">
+            <button (click)="redirectTo('home')" class="bg-slate-100 rounded-md py-1 px-3 text-customBlue font-medium hover:bg-[url('/assets/home/fondo.jpg')] hover:text-slate-100 hover:bg-left transition-colors duration-300">Home</button>
+        </div>
+    </div>
+    <div class="flex flex-col justify-start items-center w-full gap-3 my-8 z-50">
+        <div class="flex flex-row justify-center p-2 bg-white rounded-2xl gap-1">
+            @if (esCorrecto == 0) {
+                <p class="text-xl text-customBlue font-bold">¿Cuál es el pais que se llama</p>
+                <p class="text-xl text-customBlue font-black">{{paisCorrecto.name.toUpperCase()}}</p>
+                <p class="text-xl text-customBlue font-bold">?</p>
+            } @else if (esCorrecto == 1) {
+                <p class="text-xl text-green-600 font-bold mx-2">Correcto!</p>
+            } @else {
+                <p class="text-xl text-red-600 font-bold mx-2">Incorrecto!</p>
+            }
+        </div>
+    </div>
+    <div class="h-2/3 w-full flex justify-center">
+        <div class="w-full h-full grid grid-cols-2 grid-rows-2 gap-5 p-5">
+            @for (item of paisesEnJuego; track $index) {
+                <div (click)="elegirPokemon(item)" class="group w-full h-full rounded-xl bg-white/40 flex justify-center items-center hover:bg-white/80 active:bg-white transition-all">
+                    <img src={{item.foto}} alt="" class="w-32 h-32 group-hover:scale-125 transition-all">
+                </div>
+            }
+        </div>
+    </div>
+</div>

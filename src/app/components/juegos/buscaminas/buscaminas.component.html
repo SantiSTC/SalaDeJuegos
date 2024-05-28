@@ -1,0 +1,95 @@
+<div class="w-screen h-screen flex flex-col overflow-x- bg-cover bg-center bg-[url('/assets/home/fondo.jpg')]">
+    <div class="w-full h-16 min-h-16 bg-zinc-900 flex flex-row justify-between">
+        <div class="flex items-center flex-row gap-3 ml-7 z-50">
+            <img (click)="redirectTo('home')" src="/assets/joystick.png" alt="" height="32px" width="32px" class="cursor-pointer"/>
+            <p class="text-xl text-slate-100 font-bold">Evitaminas ContraReloj</p>
+        </div>
+        <div class="absolute h-16 w-screen flex justify-center items-center flex-row gap-3 z-20">
+            <p class="text-xl text-slate-100 font-bold">Aciertos: {{score}}</p>
+            <p class="text-xl text-slate-100 font-bold">|</p>
+            <p class="text-xl text-slate-100 font-bold">Restantes: {{restantes}}</p>
+            <p class="text-xl text-slate-100 font-bold">|</p>
+            <p class="text-xl text-red-700 font-bold">Bombas: {{mines}}</p>
+        </div>
+        <div class="flex items-center flex-row gap-3 mr-7 z-50">
+            <button (click)="redirectTo('home')" class="bg-slate-100 rounded-md py-1 px-3 text-customBlue font-medium hover:bg-[url('/assets/home/fondo.jpg')] hover:text-slate-100 hover:bg-left transition-colors duration-300">Home</button>
+        </div>
+    </div>
+    <div class="flex flex-col justify-center items-center h-full w-full gap-7 my-3 z-50">
+        <div class="h-20 w-full flex justify-center items-center flex-row gap-10">
+            <div class="flex flex-co justify-center items-center gap-8">
+                @switch (dificultad) {
+                    @case ("facil") {
+                        <div class="rounded-full flex flex-col justify-center items-center">
+                            <div (click)="setDificulty('facil')" class="p-3 rounded-full bg-white flex justify-center items-center cursor-pointer transition-all">
+                                <img src="/assets/buscaminas/facil.png" alt="" class="w-9 h-9">
+                            </div>
+                            <p class="text-xl text-slate-100 font-bold text-center">Facil</p>
+                        </div>
+                        <div class="rounded-full flex flex-col justify-center items-center">
+                            <div (click)="setDificulty('medio')" class="p-1.5 rounded-full bg-white/60 flex justify-center items-center cursor-pointer hover:bg-white hover:scale-95 transition-all">
+                                <img src="/assets/buscaminas/medio.png" alt="" class="w-9 h-9">
+                            </div>
+                            <p class="text-xl text-slate-100 font-bold text-center">Medio</p>
+                        </div>
+                        <div class="rounded-full flex flex-col justify-center items-center">
+                            <div (click)="setDificulty('dificil')" class="p-1.5 rounded-full bg-white/60 flex justify-center items-center cursor-pointer hover:bg-white hover:scale-95 transition-all">
+                                <img src="/assets/buscaminas/dificil.png" alt="" class="w-9 h-9">
+                            </div>
+                            <p class="text-xl text-slate-100 font-bold text-center">Dificil</p>
+                        </div>
+                    }   
+                    @case ("medio") {
+                        <div class="rounded-full flex flex-col justify-center items-center">
+                            <div (click)="setDificulty('facil')" class="p-1.5 rounded-full bg-white/60 flex justify-center items-center cursor-pointer hover:bg-white hover:scale-95 transition-all">
+                                <img src="/assets/buscaminas/facil.png" alt="" class="w-9 h-9">
+                            </div>
+                            <p class="text-xl text-slate-100 font-bold text-center">Facil</p>
+                        </div>
+                        <div class="rounded-full flex flex-col justify-center items-center">
+                            <div (click)="setDificulty('medio')" class="p-3 rounded-full bg-white flex justify-center items-center cursor-pointer transition-all">
+                                <img src="/assets/buscaminas/medio.png" alt="" class="w-9 h-9">
+                            </div>
+                            <p class="text-xl text-slate-100 font-bold text-center">Medio</p>
+                        </div>
+                        <div class="rounded-full flex flex-col justify-center items-center">
+                            <div (click)="setDificulty('dificil')" class="p-1.5 rounded-full bg-white/60 flex justify-center items-center cursor-pointer hover:bg-white hover:scale-95 transition-all">
+                                <img src="/assets/buscaminas/dificil.png" alt="" class="w-9 h-9">
+                            </div>
+                            <p class="text-xl text-slate-100 font-bold text-center">Dificil</p>
+                        </div>
+                    }
+                    @default {
+                        <div class="rounded-full flex flex-col justify-center items-center">
+                            <div (click)="setDificulty('facil')" class="p-1.5 rounded-full bg-white/60 flex justify-center items-center cursor-pointer hover:bg-white hover:scale-95 transition-all">
+                                <img src="/assets/buscaminas/facil.png" alt="" class="w-9 h-9">
+                            </div>
+                            <p class="text-xl text-slate-100 font-bold text-center">Facil</p>
+                        </div>
+                        <div class="rounded-full flex flex-col justify-center items-center">
+                            <div (click)="setDificulty('medio')" class="p-1.5 rounded-full bg-white/60 flex justify-center items-center cursor-pointer hover:bg-white hover:scale-95 transition-all">
+                                <img src="/assets/buscaminas/medio.png" alt="" class="w-9 h-9">
+                            </div>
+                            <p class="text-xl text-slate-100 font-bold text-center">Medio</p>
+                        </div>
+                        <div class="rounded-full flex flex-col justify-center items-center">
+                            <div (click)="setDificulty('dificil')" class="p-3 rounded-full bg-white flex justify-center items-center cursor-pointer transition-all">
+                                <img src="/assets/buscaminas/dificil.png" alt="" class="w-9 h-9">
+                            </div>
+                            <p class="text-xl text-slate-100 font-bold text-center">Dificil</p>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+        <div class="flex bg-zinc-300 p-2 rounded-md">
+            <div class="bg-zinc-300" *ngFor="let r of board, let rowIndex = index">
+                <div *ngFor="let c of r, let colIndex = index" class="h-10 w-10 bg-gray-600 cursor-pointer m-0.5 hover:bg-gray-700 rounded-sm" (click)="revealCell(rowIndex, colIndex)">
+                    <button [ngClass]="{ 'bg-green-700 h-full w-full': c.revealed, 'h-full w-full': c.hasMine}"  [disabled]="gameover" >
+                        {{ c.revealed ? (c.hasMine ? '💣' : '✅') : '' }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

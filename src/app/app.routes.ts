@@ -26,12 +26,6 @@ export const routes: Routes = [
         ),
     },
     {
-        path: "mayor-menor",
-        loadComponent: () => import('./components/juegos/mayormenor/mayormenor.component').then(
-            (m) => m.MayormenorComponent,
-        ),
-    },
-    {
         path: "ahorcado",
         loadComponent: () => import('./components/juegos/ahorcado/ahorcado.component').then(
             (m) => m.AhorcadoComponent,
@@ -44,13 +38,31 @@ export const routes: Routes = [
         ),
     },
     {
+        path: "preguntados",
+        loadComponent: () => import('./components/juegos/preguntados/preguntados.component').then(
+            (m) => m.PreguntadosComponent,
+        ),
+    },
+    {
+        path: "preguntados_pokemon",
+        loadComponent: () => import('./components/juegos/preguntados-pokemon/preguntados-pokemon.component').then(
+            (m) => m.PreguntadosPokemonComponent,
+        ),
+    },
+    {
+        path: "buscaminas",
+        loadComponent: () => import('./components/juegos/buscaminas/buscaminas.component').then(
+            (m) => m.BuscaminasComponent,
+        ),
+    },
+    {
         path: " ",
-        redirectTo: "login",
+        redirectTo: "home",
         pathMatch: "full",
     },
     {
         path: "**",
-        redirectTo: "login",
+        redirectTo: "home",
         pathMatch: "full",
     },
 ];

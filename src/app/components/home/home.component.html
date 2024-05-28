@@ -10,7 +10,7 @@
                     <img src="/assets/home/user.png" alt="" height="25px" width="25px" class="">
                     <p class="text-zinc-900">{{email}}</p>
                 </div>
-                <button (click)="redirectTo('login')" class="bg-red-600 rounded-md py-1 px-4 text-white font-medium">Salir</button>
+                <button (click)="redirectTo('login')" class="bg-red-600 rounded-md py-1 px-4 text-white font-medium hover:bg-red-800 transition-all">Salir</button>
             } @else {
                 <button (click)="redirectTo('login')" class="bg-customBlue rounded-md py-1 px-3 text-slate-100 font-medium hover:bg-[url('/assets/home/fondo.jpg')] transition-all duration-300">Ingresar</button>
                 <button (click)="redirectTo('register')" class="bg-slate-100 rounded-md py-1 px-3 text-customBlue font-medium hover:bg-[url('/assets/home/fondo.jpg')] hover:text-slate-100 hover:bg-left transition-colors duration-300">Registrarse</button>
@@ -24,9 +24,11 @@
                     <div class="w-full h-full p-6 grid grid-cols-2 grid-rows-2 gap-10">
                         @for (item of juegos; track $index) {
                             <a href={{item.pathJuego}} class="w-full h-full">
-                                <div class="w-full h-full rounded-2xl p-3 flex justify-center bg-cover bg-center hover:scale-95 transition-all"
+                                <div class="group w-full h-full rounded-2xl p-3 flex justify-center bg-cover bg-center hover:scale-95 transition-all"
                                 [style.background-image]="'url(' + item.pathImagen + ')'">
-                                    <p class="text-customBlue font-black text-xl">{{item.title}}</p>
+                                    <div class="w-full h-12 flex justify-center items-center bg-white/55 rounded-3xl group-hover:bg-white/95 transition-all">
+                                        <p class="text-customBlue font-black text-xl">{{item.title}}</p>
+                                    </div>
                                 </div>
                             </a>
                         }
@@ -40,9 +42,11 @@
                     <div class="w-full h-full p-6 grid grid-cols-2 grid-rows-2 gap-10">
                         @for (item of juegos; track $index) {
                             <a href={{item.pathJuego}} class="w-full h-full">
-                                <div class="w-full h-full rounded-2xl p-3 flex justify-center bg-cover bg-center hover:scale-95 transition-all"
+                                <div class="group w-full h-full rounded-2xl p-3 flex justify-center bg-cover bg-center hover:scale-95 transition-all"
                                 [style.background-image]="'url(' + item.pathImagen + ')'">
-                                    <p class="text-customBlue font-black text-xl">{{item.title}}</p>
+                                    <div class="w-full h-12 flex justify-center items-center bg-white/55 rounded-3xl group-hover:bg-white/95 transition-all">
+                                        <p class="text-customBlue font-black text-xl">{{item.title}}</p>
+                                    </div>
                                 </div>
                             </a>
                         }
@@ -63,6 +67,12 @@
                 </div>
             </div>
         }
+    </div>
+    <div class="group flex flex-row gap-3">
+        <img (click)="redirectTo('quiensoy')" src="/assets/home/quien.png" alt="" height="120px" width="120px" class="absolute left-0 bottom-0 h-[60px] w-[60px] m-3 cursor-pointer hover:scale-90 transition-all">
+        <div class="hidden absolute w-fit left-20 bottom-5 bg-white p-1 rounded-lg group-hover:flex transition-all duration-300">
+            <p class="text-2xl font-black text-yellow-500">¿Quién soy?</p>
+        </div>
     </div>
     @if (!isChatActive && isAuthenticated) {
         <div class="">

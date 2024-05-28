@@ -34,10 +34,16 @@ export class HomeComponent implements OnInit {
       pathJuego: "/mayormenor",
     },
     {
+      title: "Evitaminas ContraReloj",
+      img: "",
+      pathImagen: "/assets/home/buscaminas.jpeg",
+      pathJuego: "/buscaminas",
+    },
+    {
       title: "Preguntados",
       img: "",
-      pathImagen: "/assets/home/preguntados.jpg",
-      pathJuego: "/preguntados",
+      pathImagen: "/assets/home/preguntados.png",
+      pathJuego: "/preguntados_pokemon",
     },
   ];
 
